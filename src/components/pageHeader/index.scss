@@ -1,0 +1,62 @@
+.PageHeader {
+  background-color: $c-lightest;
+  border-bottom: 4px solid $c-primary;
+  flex-direction: column;
+  line-height: 1.2;
+
+  @media screen and (min-width: $mq-small) {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-family: $ff-bold;
+    justify-content: flex-start;
+    padding: 16px 36px;
+  }
+
+  &-Logo {
+    margin: 0 30px 8px;
+    display: flex;
+    padding-top: 15px;
+
+    @media screen and (min-width: $mq-small) {
+      margin: 8px;
+      padding-top: 0;
+      width: 140px;
+    }
+
+    & > img {
+      max-width: 140px;
+    }
+  }
+
+  &-Title {
+    color: $c-primary;
+    font-size: $fz-small;
+    margin: 0 0 0 $m-medium;
+
+    @media screen and (min-width: $mq-small) {
+      font-family: $ff-regular;
+      font-size: $fz-medium;
+      margin: 0;
+      padding: 8px;
+    }
+  }
+
+  &-Author {
+    color: $c-primary;
+    display: inline-flex;
+    font-family: $ff-regular;
+    font-size: $fz-small;
+    margin: 8px 30px 16px;
+    text-decoration: none;
+
+    @media screen and (min-width: $mq-small) {
+      font-size: $fz-medium;
+      margin: 0;
+    }
+
+    &:hover {
+      color: lighten(#1da1f2, $amount: 10);
+    }
+  }
+}
