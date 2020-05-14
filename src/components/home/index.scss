@@ -1,0 +1,10 @@
+.homePage {
+  margin: $m-medium;
+
+  @media screen and (min-width: $mq-small) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: $m-medium auto;
+    max-width: $mw-layout;
+  }
+}
