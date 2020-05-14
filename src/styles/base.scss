@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: $c-darkest;
+  background-color: $c-neutral-light;
+  font: normal 125% / 1.4 $ff-regular;
+}

@@ -1,0 +1,38 @@
+.title {
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: $mq-small) {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  &-heading {
+    font-size: $fz-large;
+    margin: 0 12px 0 0;
+    padding: 0;
+  }
+
+  &-subHeading {
+    font-size: $fz-medium;
+    font-family: $ff-regular;
+    font-weight: normal;
+    margin: 0 $m-medium 0 0;
+  }
+
+  &-toggle {
+    font-size: $fz-small;
+
+    & > label {
+      cursor: pointer;
+      margin-left: 8px;
+    }
+
+    & > input[type='checkbox'] {
+      height: 14px;
+      width: 14px;
+    }
+  }
+}
