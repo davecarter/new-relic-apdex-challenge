@@ -7,10 +7,6 @@ import mockedResponse from '../../domain/responseModel.json'
 
 const HomePage = () => {
   const [isListView, setIsListView] = useState(false)
-  const handleListView = () => {
-    console.log('VIEW TYPE:', isListView ? 'list' : 'card')
-    setIsListView(!isListView)
-  }
 
   return (
     <>
@@ -18,7 +14,7 @@ const HomePage = () => {
       <section className="homePage">
         <Title
           userEmail="averylongemailaddress@companyname.com"
-          toggleView={handleListView}
+          toggleView={() => setIsListView(!isListView)}
         />
         <CardList
           typeList={isListView ? 'list' : 'card'}
