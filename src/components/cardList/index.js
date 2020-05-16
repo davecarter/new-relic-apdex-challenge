@@ -9,7 +9,13 @@ const CardList = ({appList, typeList}) => {
   return (
     <div className={`${baseClass}--${typeList}`}>
       {appList.map(card => {
-        return <Card key={card.id} />
+        return (
+          <Card
+            key={card.host}
+            host={card.host}
+            applications={card.applications}
+          />
+        )
       })}
     </div>
   )

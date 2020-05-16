@@ -3,10 +3,12 @@ import {PageHeader} from '../pageHeader'
 import {Title} from '../title'
 import {CardList} from '../cardList'
 
+import mockedResponse from '../../domain/responseModel.json'
+
 const HomePage = () => {
   const [isListView, setIsListView] = useState(false)
   const handleListView = () => {
-    console.log('HANDLE', isListView)
+    console.log('VIEW TYPE:', isListView ? 'list' : 'card')
     setIsListView(!isListView)
   }
 
@@ -20,7 +22,7 @@ const HomePage = () => {
         />
         <CardList
           typeList={isListView ? 'list' : 'card'}
-          appList={[{id: 1}, {id: 2}]}
+          appList={mockedResponse}
         />
       </section>
     </>
