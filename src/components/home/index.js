@@ -1,25 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {domain} from '../../domain'
 import {PageHeader} from '../pageHeader'
 import {Title} from '../title'
 import {CardList} from '../cardList'
 
-import mockedResponse from '../../domain/responseModel.json'
-
 const HomePage = () => {
   const [isListView, setIsListView] = useState(false)
+  const [appList, setAppList] = useState([])
+  const {userEmail} = domain.get('config')
+
+  useEffect(() => {
+    domain
+      .get('get_top_apps_by_host')
+      .execute({hostName: 'e7bf58af-f0be.dallas.biz'})
+      .then(result => setAppList(result))
+  })
 
   return (
     <>
       <PageHeader />
       <section className="homePage">
         <Title
-          userEmail="averylongemailaddress@companyname.com"
+          userEmail={userEmail}
           toggleView={() => setIsListView(!isListView)}
         />
-        <CardList
-          typeList={isListView ? 'list' : 'card'}
-          appList={mockedResponse}
-        />
+        <CardList typeList={isListView ? 'list' : 'card'} appList={appList} />
       </section>
     </>
   )

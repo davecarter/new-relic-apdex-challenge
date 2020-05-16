@@ -1,6 +1,7 @@
 .card {
   background-color: $c-lightest;
-  margin: $m-medium 0;
+  flex-basis: 375px;
+  margin: $m-medium 0 0;
   padding: $p-medium;
 
   &-host {
