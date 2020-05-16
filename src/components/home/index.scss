@@ -2,9 +2,11 @@
   margin: $m-medium;
 
   @media screen and (min-width: $mq-small) {
+    background-color: $c-neutral-light;
     display: flex;
     flex-wrap: wrap;
     margin: $m-medium auto;
     max-width: $mw-layout;
+    padding: $p-medium;
   }
 }

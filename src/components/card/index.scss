@@ -1,0 +1,44 @@
+.card {
+  background-color: $c-lightest;
+  margin: $m-medium 0;
+  padding: $p-medium;
+
+  &-host {
+    margin: 0 0 23px 0;
+  }
+
+  &:nth-child(even) {
+    margin-left: $m-medium;
+  }
+
+  &-listContainer {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item {
+    padding: 0;
+  }
+
+  &-button {
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    padding: 0;
+    text-align: left;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-apdex {
+    font-size: $fz-small;
+    margin-right: 12px;
+    opacity: 62%;
+  }
+}
