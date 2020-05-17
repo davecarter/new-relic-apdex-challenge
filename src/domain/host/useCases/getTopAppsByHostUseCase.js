@@ -4,7 +4,7 @@ class GetTopAppsByHostUseCase {
   }
 
   async execute() {
-    const appsByHostNameListValueObject = await this._repository.getTopAppsByHost()
+    const appsByHostNameListValueObject = await this._repository.getJsonHostAppData()
     return (
       appsByHostNameListValueObject && appsByHostNameListValueObject.toJSON()
     )

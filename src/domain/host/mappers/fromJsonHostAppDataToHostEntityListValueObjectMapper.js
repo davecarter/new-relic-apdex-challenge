@@ -48,7 +48,7 @@ class FromJsonHostAppDataToHostEntityListValueObjectMapper {
         applications: element._applications
           .map(appVO => appVO.toJSON())
           .sort((a, b) => b.apdex - a.apdex)
-          .slice(0, this._config.MAX_APPS_LENGTH),
+          .slice(0, this._config.MAX_APPS_IN_CARD_LENGTH),
         host: element._hostName
       })
     })
