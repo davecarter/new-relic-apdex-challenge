@@ -1,15 +1,23 @@
 .card {
-  background-color: $c-lightest;
-  flex-basis: 375px;
-  margin: $m-medium 0 0;
-  padding: $p-medium;
+  padding: $p-medium 0;
 
-  &-host {
-    margin: 0 0 23px 0;
+  @media screen and (min-width: $mq-small) {
+    background-color: $c-lightest;
+    flex-basis: 375px;
+    margin: $m-medium 0 0;
+    padding: $p-medium;
   }
 
   &:nth-child(even) {
-    margin-left: $m-medium;
+    margin-left: 0;
+
+    @media screen and (min-width: $mq-small) {
+      margin-left: $m-medium;
+    }
+  }
+
+  &-host {
+    margin: 0 0 23px 0;
   }
 
   &-listContainer {
@@ -39,7 +47,13 @@
 
   &-apdex {
     font-size: $fz-small;
-    margin-right: 12px;
+    margin-right: $m-medium;
     opacity: 62%;
+    width: 0;
+  }
+
+  &-name {
+    text-align: left;
+    word-break: keep-all;
   }
 }
