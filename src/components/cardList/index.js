@@ -5,7 +5,7 @@ import {Card} from '../card'
 
 const baseClass = 'cardList'
 
-const CardList = ({appList, typeList}) => (
+const CardList = ({appList = [], typeList}) => (
   <div className={`${baseClass}--${typeList}`}>
     {appList.map((card, idx) => {
       return (

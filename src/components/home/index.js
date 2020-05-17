@@ -24,10 +24,7 @@ const HomePage = () => {
           userEmail={userEmail}
           toggleView={() => setIsListView(!isListView)}
         />
-        <CardList
-          typeList={isListView ? 'list' : 'card'}
-          appList={appList || []}
-        />
+        <CardList typeList={isListView ? 'list' : 'card'} appList={appList} />
       </section>
     </>
   )
