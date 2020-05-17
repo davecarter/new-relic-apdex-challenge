@@ -6,8 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode production",
     "start": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --mode development",
-    "co": "sui-mono commit",
-    "now-build": "npm run build"
+    "test": "jest",
+    "test:watch": "jest -w"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,11 @@
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
@@ -41,13 +46,15 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
     "@babel/runtime": "^7.8.4",
-    "@s-ui/lint": "^3.14.0",
-    "@s-ui/mono": "1",
+    "@s-ui/lint": "3",
+    "babel-jest": "26.0.1",
     "babel-loader": "^8.0.5",
     "babel-preset-sui": "3",
+    "chai": "4.2.0",
     "css-loader": "^3.4.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "26.0.1",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.13.1",
     "react-dev-utils": "^10.2.0",
