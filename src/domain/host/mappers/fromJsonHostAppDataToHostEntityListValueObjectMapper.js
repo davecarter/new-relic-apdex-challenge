@@ -37,7 +37,7 @@ class FromJsonHostAppDataToHostEntityListValueObjectMapper {
       if (!appsByHostNameListMap.has(hostName))
         appsByHostNameListMap.set(hostName, this._hostEntityFactory({hostName}))
 
-      appsByHostNameListMap.get(hostName).addApplication(appValueObject)
+      appsByHostNameListMap.get(hostName).addAppToHosts(appValueObject)
     })
   }
 

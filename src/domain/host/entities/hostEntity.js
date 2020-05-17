@@ -4,8 +4,13 @@ class HostEntity {
     this._applications = []
   }
 
-  addApplication(app) {
+  addAppToHosts(app) {
     this._applications.push(app)
+  }
+
+  removeAppFromHosts(app) {
+    const idx = this._applications.indexOf(app)
+    if (idx > -1) this._applications.splice(idx, 1)
   }
 
   applications() {
