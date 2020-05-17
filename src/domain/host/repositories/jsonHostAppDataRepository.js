@@ -5,7 +5,7 @@ class JsonHostAppDataRepository {
   }
 
   getTopAppsByHost() {
-    const response = this._config.HOST_APP_DATA_TRUNKED
+    const response = this._config.HOST_APP_DATA
     return this._mapper.map(response)
   }
 }

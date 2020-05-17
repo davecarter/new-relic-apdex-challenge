@@ -14,7 +14,7 @@ const HomePage = () => {
       .get('get_top_apps_by_host')
       .execute()
       .then(result => setAppList(result))
-  })
+  }, [])
 
   return (
     <>

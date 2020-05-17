@@ -12,36 +12,56 @@ class FromJsonHostAppDataToHostEntityListValueObjectMapper {
   }
 
   _getHostsFromRawData = data => {
-    const appsByHostNameList = new Map()
+    const appsByHostNameListMap = new Map()
     data.forEach(appData => {
       const {name, apdex, contributors, version} = appData
-      const app = this._appNameValueObjectFactory({
+      const appValueObject = this._appNameValueObjectFactory({
         name,
         apdex,
         contributors,
         version
       })
 
-      this._groupByHost({app, hostsNames: appData.host, appsByHostNameList})
+      this._groupByHost({
+        appValueObject,
+        hostsNames: appData.host,
+        appsByHostNameListMap
+      })
     })
 
-    return appsByHostNameList
+    return appsByHostNameListMap
   }
 
-  _groupByHost = ({app, hostsNames, appsByHostNameList}) => {
+  _groupByHost = ({appValueObject, hostsNames, appsByHostNameListMap}) => {
     hostsNames.forEach(hostName => {
-      if (!appsByHostNameList.has(hostName))
-        appsByHostNameList.set(hostName, this._hostEntityFactory({hostName}))
+      if (!appsByHostNameListMap.has(hostName))
+        appsByHostNameListMap.set(hostName, this._hostEntityFactory({hostName}))
 
-      appsByHostNameList.get(hostName).addApplication(app)
+      appsByHostNameListMap.get(hostName).addApplication(appValueObject)
     })
+  }
+
+  _sortAppsByHostNameListMap = mapList => {
+    const sortedMapList = []
+    mapList.forEach(element => {
+      sortedMapList.push({
+        applications: element._applications
+          .map(appVO => appVO.toJSON())
+          .sort((a, b) => b.apdex - a.apdex)
+          .slice(0, this._config.MAX_APPS_LENGTH),
+        host: element._hostName
+      })
+    })
+
+    return sortedMapList
   }
 
   map(data) {
-    const appsByHostNameList = this._getHostsFromRawData(data)
-    debugger
+    const appsByHostNameListMap = this._getHostsFromRawData(data)
+    const sortedAppList = this._sortAppsByHostNameListMap(appsByHostNameListMap)
+
     return this._appsByHostNameListValueObjectFactory({
-      appsByHostNameList
+      appsByHostNameList: sortedAppList
     })
   }
 }

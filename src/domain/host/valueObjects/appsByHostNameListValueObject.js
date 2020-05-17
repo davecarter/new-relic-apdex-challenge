@@ -8,8 +8,7 @@ class AppsByHostNameListValueObject {
   }
 
   toJSON() {
-    debugger
-    return this._appsByHostNameList.forEach(hostEntity => hostEntity)
+    return this._appsByHostNameList
   }
 }
 
