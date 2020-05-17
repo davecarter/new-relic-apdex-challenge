@@ -1,8 +1,12 @@
-import {HostNameValueObject} from './hostNameValueObject'
+import {AppNameValueObject} from './appNameValueObject'
+import {AppsByHostNameListValueObject} from './appsByHostNameListValueObject'
 
 class HostValueObjectsFactory {
-  static hostNameValueObject = ({hostName}) =>
-    new HostNameValueObject({hostName})
+  static appNameValueObject = ({name, apdex, contributors, version}) =>
+    new AppNameValueObject({name, apdex, contributors, version})
+
+  static appsByHostNameListValueObject = ({appsByHostNameList}) =>
+    new AppsByHostNameListValueObject({appsByHostNameList})
 }
 
 export {HostValueObjectsFactory}

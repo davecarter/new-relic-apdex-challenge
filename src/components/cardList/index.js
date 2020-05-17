@@ -5,21 +5,19 @@ import {Card} from '../card'
 
 const baseClass = 'cardList'
 
-const CardList = ({appList, typeList}) => {
-  return (
-    <div className={`${baseClass}--${typeList}`}>
-      {appList.map(card => {
-        return (
-          <Card
-            key={card.host}
-            host={card.host}
-            applications={card.applications}
-          />
-        )
-      })}
-    </div>
-  )
-}
+const CardList = ({appList, typeList}) => (
+  <div className={`${baseClass}--${typeList}`}>
+    {appList.map((card, idx) => {
+      return (
+        <Card
+          key={card.host + idx}
+          host={card.host}
+          applications={card.applications}
+        />
+      )
+    })}
+  </div>
+)
 
 CardList.propTypes = {
   appList: PropTypes.array,

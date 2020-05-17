@@ -12,7 +12,7 @@ const HomePage = () => {
   useEffect(() => {
     domain
       .get('get_top_apps_by_host')
-      .execute({hostName: 'e7bf58af-f0be.dallas.biz'})
+      .execute()
       .then(result => setAppList(result))
   })
 
@@ -24,7 +24,10 @@ const HomePage = () => {
           userEmail={userEmail}
           toggleView={() => setIsListView(!isListView)}
         />
-        <CardList typeList={isListView ? 'list' : 'card'} appList={appList} />
+        <CardList
+          typeList={isListView ? 'list' : 'card'}
+          appList={appList || []}
+        />
       </section>
     </>
   )

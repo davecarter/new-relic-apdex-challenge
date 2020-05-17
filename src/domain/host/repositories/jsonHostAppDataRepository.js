@@ -4,11 +4,9 @@ class JsonHostAppDataRepository {
     this._config = config
   }
 
-  async getApps({hostNameValueObject}) {
-    const hostName = hostNameValueObject.value()
-
+  getTopAppsByHost() {
     const response = this._config.HOST_APP_DATA_TRUNKED
-    return this._mapper.setParams(hostName).map(response)
+    return this._mapper.map(response)
   }
 }
 
