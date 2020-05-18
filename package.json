@@ -1,6 +1,6 @@
 {
   "name": "new-relic-apdex-board-challenge",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An Apex index Board project build with JavaScript and ReactJS",
   "main": "src/index.js",
   "scripts": {
